@@ -1,4 +1,4 @@
-task.wait(3)
+task.wait(0.1)
 local function tp()
 	local servers = {}
 	local req = request({Url = string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Desc&limit=100&excludeFullGames=true", game.PlaceId)})
