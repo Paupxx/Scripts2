@@ -58,3 +58,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 		tp()
 	end
 end)
+
+game.Players.LocalPlayer.OnTeleport:Connect(function()
+	queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Paupxx/Scripts2/main/autokill.lua?token=GHSAT0AAAAAAB5UA3GA4PP2KRMMLSLDYJSAZQWFUCA"))()')
+end)
