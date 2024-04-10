@@ -18,7 +18,7 @@ local function tp()
 end
 
 game.Players.PlayerRemoving:Connect(function(p)
-	if #game.Players:GetPlayers() <= 5 then 
+	if #game.Players:GetPlayers() <= 1 then 
 		tp()
 	end
 end)
@@ -56,7 +56,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 			end
         end
     end
-	if #game.Players:GetPlayers() <= 5 then 
+	if #game.Players:GetPlayers() <= 1 then 
 		tp()
 	end
 end)
