@@ -61,5 +61,5 @@ game:GetService("RunService").RenderStepped:Connect(function()
 end)
 
 game.Players.LocalPlayer.OnTeleport:Connect(function()
-	queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Paupxx/Scripts2/main/autokill.lua"))()')
+	queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Paupxx/Scripts2/main/autokill%5Bno%20constant%20hop%5D.lua"))()')
 end)
