@@ -58,7 +58,3 @@ game:GetService("RunService").RenderStepped:Connect(function()
 		tp()
 	end
 end)
-
-game.Players.LocalPlayer.OnTeleport:Connect(function()
-	queue_on_teleport()
-end)
