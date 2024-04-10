@@ -1,6 +1,6 @@
 task.wait(0.1)
 local function tp()
-	task.wait(2.5)
+	task.wait(5)
 	local servers = {}
 	local req = request({Url = string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Desc&limit=100&excludeFullGames=true", game.PlaceId)})
 	local body = game.HttpService:JSONDecode(req.Body)
