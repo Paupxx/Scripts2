@@ -2,6 +2,7 @@ task.wait(0.1)
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
+repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") -- skull
 local istping = false
 local function tp()
 	task.wait(7)
@@ -34,7 +35,7 @@ end)
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 
-game:GetService("RunService").RenderStepped:Connect(function()
+local r; r = game:GetService("RunService").RenderStepped:Connect(function()
     if Player and Player.Character then 
 		Player.Character.HumanoidRootPart.CFrame = CFrame.new(31, 5000, 212)
         for i,v in pairs(Player.Character:GetDescendants()) do 
@@ -69,6 +70,13 @@ game:GetService("RunService").RenderStepped:Connect(function()
 	end
 end)
 
-game.Players.LocalPlayer.OnTeleport:Connect(function()
-	queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Paupxx/Scripts2/main/autokill.lua"))()')
+local queue = false
+
+local c; c = game.Players.LocalPlayer.OnTeleport:Connect(function()
+	if not queue then
+		queue = true
+		c:Disconnect()
+		r:Disconnect()
+		queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Paupxx/Scripts2/main/autokill.lua"))()')
+	end
 end)
