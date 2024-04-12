@@ -1,4 +1,8 @@
 task.wait(0.1)
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
+local istping = false
 local function tp()
 	task.wait(2)
 	local servers = {}
@@ -13,7 +17,11 @@ local function tp()
 		end
 	end
 	if #servers > 0 then
-		game.TeleportService:TeleportToPlaceInstance(game.PlaceId, servers[math.random(1, #servers)], game.Players.LocalPlayer)
+
+		if not istping then
+			istping = true
+			game.TeleportService:TeleportToPlaceInstance(game.PlaceId, servers[math.random(1, #servers)], game.Players.LocalPlayer)
+		end
 	end
 end
 
