@@ -1,11 +1,12 @@
-task.wait(0.1)
-if not game:IsLoaded() then
-	game.Loaded:Wait()
-end
-repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") -- skull
+--task.wait(0.1)
+--if not game:IsLoaded() then
+--	game.Loaded:Wait()
+--end
+--repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") -- skull
 local istping = false
 local function tp()
-	task.wait(7)
+	task.wait(4)
+	--task.wait(7)
 	local servers = {}
 	local req = request({Url = string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Desc&limit=100&excludeFullGames=true", game.PlaceId)})
 	local body = game.HttpService:JSONDecode(req.Body)
