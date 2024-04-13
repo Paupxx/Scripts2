@@ -21,7 +21,10 @@ local function tp()
 
 		if not istping then
 			istping = true
-			game.TeleportService:TeleportToPlaceInstance(game.PlaceId, servers[math.random(1, #servers)], game.Players.LocalPlayer)
+			local success, e = pcall(function()
+				game.TeleportService:TeleportToPlaceInstance(game.PlaceId, servers[math.random(1, #servers)], game.Players.LocalPlayer)	
+			end)
+			if not success then istping = false end
 		end
 	end
 end
