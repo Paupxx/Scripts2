@@ -4,6 +4,7 @@ if not game:IsLoaded() then
 end
 repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") -- skull
 local istping = false
+local cons = {}
 local function tp()
 	--task.wait(4)
 	task.wait(7)
@@ -19,27 +20,26 @@ local function tp()
 		end
 	end
 	if #servers > 0 then
-
 		if not istping then
 			istping = true
 			local success, e = pcall(function()
 				game.TeleportService:TeleportToPlaceInstance(game.PlaceId, servers[math.random(1, #servers)], game.Players.LocalPlayer)	
 			end)
-			if not success then istping = false end
+			if not success then istping = false tp() end
 		end
 	end
 end
 
-game.Players.PlayerRemoving:Connect(function(p)
+table.insert(cons, game.Players.PlayerRemoving:Connect(function(p)
 	if #game.Players:GetPlayers() <= 42352 then 
 		tp()
 	end
-end)
+end))
 
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 
-local r; r = game:GetService("RunService").RenderStepped:Connect(function()
+table.insert(cons, game:GetService("RunService").RenderStepped:Connect(function()
     if Player and Player.Character then 
 		Player.Character.HumanoidRootPart.CFrame = CFrame.new(31, 5000, 212)
         for i,v in pairs(Player.Character:GetDescendants()) do 
@@ -72,15 +72,14 @@ local r; r = game:GetService("RunService").RenderStepped:Connect(function()
 	if #game.Players:GetPlayers() <= 23422 then 
 		tp()
 	end
-end)
+end))
 
 local queue = false
 
-local c; c = game.Players.LocalPlayer.OnTeleport:Connect(function()
+table.insert(cons, game.Players.LocalPlayer.OnTeleport:Connect(function()
 	if not queue then
 		queue = true
-		c:Disconnect()
-		r:Disconnect()
+		for i,v in pairs(cons) do v:Disconnect() v = nil end
 		queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Paupxx/Scripts2/main/autokill.lua"))()')
 	end
-end)
+end))
