@@ -7,7 +7,7 @@ local istping = false
 local cons = {}
 local function tp()
 	--task.wait(4)
-	task.wait(7)
+	task.wait(2)
 	local servers = {}
 	local req = request({Url = string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Desc&limit=100&excludeFullGames=true", game.PlaceId)})
 	local body = game.HttpService:JSONDecode(req.Body)
