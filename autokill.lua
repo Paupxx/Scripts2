@@ -1,8 +1,8 @@
 task.wait()
-if not game:IsLoaded() then
-	game.Loaded:Wait()
-end
-repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") -- skull
+--if not game:IsLoaded() then
+--	game.Loaded:Wait()
+--end
+--repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") -- skull
 local istping = false
 local cons = {}
 local function tp()
