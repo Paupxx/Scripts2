@@ -76,6 +76,6 @@ table.insert(cons, Player.OnTeleport:Connect(function()
 			v:Disconnect() 
 			v = nil 
 		end
-		queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Paupxx/Scripts2/main/autokill.lua"))()')
+		queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Paupxx/Scripts2/main/autokill2.lua"))()')
 	end
 end))
